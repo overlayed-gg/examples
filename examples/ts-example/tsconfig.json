@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"noImplicitAny": true,
+		"strict": true,
+		"outDir": "dist",
+		"baseUrl": ".",
+		"skipLibCheck": true,
+		"allowImportingTsExtensions": true,
+		"noEmit": true
+	},
+	"include": ["src"],
+	"exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,22 @@
+{
+	"name": "@overlayed/ts-example",
+	"version": "1.0.0",
+	"description": "Minimal example using TypeScript",
+	"main": "dist/main.js",
+	"type": "module",
+	"scripts": {
+		"build": "tsc",
+		"start": "tsc && ogg-electron ./dist/main.js"
+	},
+	"dependencies": {
+		"@overlayed/app": "latest",
+		"@overlayed/electron": "33.3.0-2",
+		"electron": "33.3.0"
+	},
+	"devDependencies": {
+		"@types/node": "^18.0.0",
+		"typescript": "^5.0.0"
+	},
+	"author": "Overlayed",
+	"license": "ISC"
+}
