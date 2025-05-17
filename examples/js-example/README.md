@@ -1,6 +1,6 @@
 # Overlayed TypeScript Example
 
-This is a minimal example of using Overlayed with TypeScript
+This is a minimal example of using Overlayed with Javascript
 
 ## Setup
 
