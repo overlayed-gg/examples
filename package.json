@@ -1,0 +1,12 @@
+{
+	"name": "@overlayed/examples",
+	"version": "1.0.0",
+	"main": "index.js",
+	"keywords": [],
+	"author": "Overlayed",
+	"license": "ISC",
+	"dependencies": {
+		"@overlayed/app": "latest",
+		"@overlayed/electron": "latest"
+	}
+}
