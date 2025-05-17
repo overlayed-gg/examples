@@ -2,11 +2,15 @@
 	"name": "@overlayed/examples",
 	"version": "1.0.0",
 	"main": "index.js",
-	"keywords": [],
+	"keywords": [
+		"overlayed",
+		"overlay",
+		"examples"
+	],
 	"author": "Overlayed",
 	"license": "ISC",
-	"dependencies": {
-		"@overlayed/app": "latest",
-		"@overlayed/electron": "latest"
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/overlayed-gg/examples"
 	}
 }

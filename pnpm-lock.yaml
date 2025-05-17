@@ -6,14 +6,35 @@ settings:
 
 importers:
 
-  .:
+  .: {}
+
+  examples/js-example:
     dependencies:
       '@overlayed/app':
         specifier: latest
-        version: 0.7.0
+        version: 0.7.0(typescript@5.8.3)
       '@overlayed/electron':
         specifier: latest
         version: 33.3.0-2
+
+  examples/ts-example:
+    dependencies:
+      '@overlayed/app':
+        specifier: latest
+        version: 0.7.0(typescript@5.8.3)
+      '@overlayed/electron':
+        specifier: 33.3.0-2
+        version: 33.3.0-2
+      electron:
+        specifier: 33.3.0
+        version: 33.3.0
+    devDependencies:
+      '@types/node':
+        specifier: ^18.0.0
+        version: 18.19.100
+      typescript:
+        specifier: ^5.0.0
+        version: 5.8.3
 
 packages:
 
@@ -72,6 +93,9 @@ packages:
 
   '@types/keyv@3.1.4':
     resolution: {integrity: sha512-BQ5aZNSCpj7D6K2ksrRCTmKRLEpnPvWDiLPfoGyhZ++8YtiK9d/3DBKPJgry359X/P1PfruyYwvnvwFjuEiEIg==}
+
+  '@types/node@18.19.100':
+    resolution: {integrity: sha512-ojmMP8SZBKprc3qGrGk8Ujpo80AXkrP7G2tOT4VWr5jlr5DHjsJF+emXJz+Wm0glmy4Js62oKMdZZ6B9Y+tEcA==}
 
   '@types/node@20.17.47':
     resolution: {integrity: sha512-3dLX0Upo1v7RvUimvxLeXqwrfyKxUINk0EAM83swP2mlSUcwV73sZy8XhNz8bcZ3VbsfQyC/y6jRdL5tgCNpDQ==}
@@ -395,6 +419,14 @@ packages:
     resolution: {integrity: sha512-TeTSQ6H5YHvpqVwBRcnLDCBnDOHWYu7IvGbHT6N8AOymcr9PJGjc1GTtiWZTYg0NCgYwvnYWEkVChQAr9bjfwA==}
     engines: {node: '>=16'}
 
+  typescript@5.8.3:
+    resolution: {integrity: sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
+  undici-types@5.26.5:
+    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+
   undici-types@6.19.8:
     resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
 
@@ -450,11 +482,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@overlayed/app@0.7.0':
+  '@overlayed/app@0.7.0(typescript@5.8.3)':
     dependencies:
       arktype: 2.1.20
       electron: 33.3.0
       jszip: 3.10.1
+    optionalDependencies:
+      typescript: 5.8.3
     transitivePeerDependencies:
       - supports-color
 
@@ -484,14 +518,18 @@ snapshots:
     dependencies:
       '@types/http-cache-semantics': 4.0.4
       '@types/keyv': 3.1.4
-      '@types/node': 20.17.47
+      '@types/node': 18.19.100
       '@types/responselike': 1.0.3
 
   '@types/http-cache-semantics@4.0.4': {}
 
   '@types/keyv@3.1.4':
     dependencies:
-      '@types/node': 20.17.47
+      '@types/node': 18.19.100
+
+  '@types/node@18.19.100':
+    dependencies:
+      undici-types: 5.26.5
 
   '@types/node@20.17.47':
     dependencies:
@@ -503,11 +541,11 @@ snapshots:
 
   '@types/responselike@1.0.3':
     dependencies:
-      '@types/node': 20.17.47
+      '@types/node': 18.19.100
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 20.17.47
+      '@types/node': 18.19.100
     optional: true
 
   arktype@2.1.20:
@@ -844,6 +882,10 @@ snapshots:
     optional: true
 
   type-fest@4.41.0: {}
+
+  typescript@5.8.3: {}
+
+  undici-types@5.26.5: {}
 
   undici-types@6.19.8: {}
 
