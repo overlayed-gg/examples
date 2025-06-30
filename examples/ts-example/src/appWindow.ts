@@ -1,5 +1,5 @@
 import { RenderWindow, RenderWindowConstructorOptions } from "@overlayed/app";
-import { overlay } from "./overlayed.ts";
+import { overlay } from "./overlayed";
 
 export class AppWindow {
 	private renderWindow: RenderWindow | null;

@@ -1,8 +1,8 @@
 import { app, BrowserWindow } from "electron";
 import * as path from "node:path";
 import { fileURLToPath } from "node:url";
-import { overlay } from "./overlayed.ts";
-import { AppWindow } from "./appWindow.ts";
+import { overlay } from "./overlayed";
+import { AppWindow } from "./appWindow";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
