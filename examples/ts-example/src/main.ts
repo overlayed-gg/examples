@@ -18,7 +18,10 @@ function createWindow() {
 	});
 
 	const appWindow = new AppWindow();
-	overlay.on("gameReady", () => appWindow.create());
+	overlay.on("gameReady", () => {
+		overlay.siege.readyForGameEvents();
+		appWindow.create();
+	});
 	overlay.on("gameClose", () => appWindow.destroy());
 
 	overlay.siege.on("player_joined", (event) => {

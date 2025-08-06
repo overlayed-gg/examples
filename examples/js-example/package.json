@@ -11,7 +11,7 @@
 	"author": "Overlayed",
 	"license": "ISC",
 	"dependencies": {
-		"@overlayed/app": "latest",
+		"@overlayed/app": "0.17.0",
 		"@overlayed/electron": "latest"
 	}
 }

@@ -9,7 +9,7 @@
 		"start": "tsc && ogg-electron ./dist/main.js"
 	},
 	"dependencies": {
-		"@overlayed/app": "latest",
+		"@overlayed/app": "0.17.0",
 		"@overlayed/electron": "33.3.0-2",
 		"electron": "33.3.0"
 	},
