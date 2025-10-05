@@ -1,8 +1,10 @@
 import { overlayed } from "@overlayed/app";
-import { Siege } from "@overlayed/app/siege";
+import * as Siege from "@overlayed/app/siege";
+import electron from "electron";
 
 export const overlay = overlayed({
-	appName: "my-app",
+	applicationId: "sample-app",
+	electron: electron,
 	modules: [Siege.module()],
 	keybinds: {
 		toggleMainWindow: {
