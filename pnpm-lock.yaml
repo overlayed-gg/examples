@@ -11,8 +11,8 @@ importers:
   examples/ts-example:
     dependencies:
       '@overlayed/app':
-        specifier: ^0.31.2
-        version: 0.31.2(electron@33.3.0)(typescript@5.8.3)
+        specifier: ^0.31.3
+        version: 0.31.3(electron@33.3.0)(typescript@5.8.3)
       '@overlayed/electron':
         specifier: 33.3.0-2
         version: 33.3.0-2
@@ -36,8 +36,8 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0(electron@33.3.0)
       '@overlayed/app':
-        specifier: ^0.31.2
-        version: 0.31.2(electron@33.3.0)(typescript@5.9.3)
+        specifier: ^0.31.3
+        version: 0.31.3(electron@33.3.0)(typescript@5.9.3)
     devDependencies:
       '@electron-toolkit/tsconfig':
         specifier: ^2.0.0
@@ -418,8 +418,8 @@ packages:
     engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
     deprecated: This functionality has been moved to @npmcli/fs
 
-  '@overlayed/app@0.31.2':
-    resolution: {integrity: sha512-fw9WAr8pcM9EVGjwMC98kZqlAkla8DS/cyJV9RNDemO27PblzleRo4VHN3roO83UCBt56RMH7d92u/I3iUWrSA==}
+  '@overlayed/app@0.31.3':
+    resolution: {integrity: sha512-lGZP+/bE9EwZIsrpZqvD2oEHXtfjTDeCphhgrdOJXOAo28qveaCYVdCP66HTUj8x4csPMqsfBdwm/X2D0olpKA==}
     engines: {node: '>=20.10.0'}
     peerDependencies:
       electron: 33.3.0
@@ -2550,7 +2550,7 @@ snapshots:
       mkdirp: 1.0.4
       rimraf: 3.0.2
 
-  '@overlayed/app@0.31.2(electron@33.3.0)(typescript@5.8.3)':
+  '@overlayed/app@0.31.3(electron@33.3.0)(typescript@5.8.3)':
     dependencies:
       arktype: 2.1.28
       electron: 33.3.0
@@ -2564,7 +2564,7 @@ snapshots:
     optionalDependencies:
       typescript: 5.8.3
 
-  '@overlayed/app@0.31.2(electron@33.3.0)(typescript@5.9.3)':
+  '@overlayed/app@0.31.3(electron@33.3.0)(typescript@5.9.3)':
     dependencies:
       arktype: 2.1.28
       electron: 33.3.0

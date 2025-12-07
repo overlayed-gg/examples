@@ -19,7 +19,7 @@
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.2",
     "@electron-toolkit/utils": "^4.0.0",
-    "@overlayed/app": "^0.31.2"
+    "@overlayed/app": "^0.31.3"
   },
   "devDependencies": {
     "@electron-toolkit/tsconfig": "^2.0.0",
