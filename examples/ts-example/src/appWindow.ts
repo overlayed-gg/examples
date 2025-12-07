@@ -21,6 +21,11 @@ export class AppWindow {
 
 	registerKeybinds(renderWindow: RenderWindow) {
 		overlay.keybinds.toggleMainWindow.on("toggle", () => {
+			if (renderWindow.isDestroyed()) {
+				overlay.log.warn("Browser window is destroyed, skipping keybind");
+				return;
+			}
+
 			if (renderWindow.isVisible()) {
 				renderWindow.hide();
 			} else {
