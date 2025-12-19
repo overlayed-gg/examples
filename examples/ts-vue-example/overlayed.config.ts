@@ -1,12 +1,12 @@
-import { defineConfig } from '@overlayed/app'
+import { defineConfig } from "@overlayed/app";
 
 export default defineConfig({
-  applicationId: 'sample-app',
-  app: {
-    include: ['./main/**/*', './preload/**/*']
-  },
-  site: {
-    baseDir: './out/renderer',
-    include: ['**/*']
-  }
-})
+	applicationId: "example-app",
+	app: {
+		include: ["./main/**/*", "./preload/**/*"],
+	},
+	site: {
+		baseDir: "./out/renderer",
+		include: ["**/*"],
+	},
+});
