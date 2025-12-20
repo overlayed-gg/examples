@@ -1,4 +1,6 @@
 import { ipcRenderer } from "electron";
+import type { UniversalGameEvent } from "@overlayed/app/universal";
+import type { SiegeEvent } from "@overlayed/app/siege";
 
 type AnyFunction = (...args: any[]) => any;
 
@@ -12,12 +14,18 @@ export const ipc = {
 	},
 
 	// Getters
-	hasActiveGames: () => {
+	hasActiveGames: (): Promise<boolean> => {
 		return ipcRenderer.invoke("hasActiveGames");
+	},
+	isConnectedToAnyGame: (): Promise<boolean> => {
+		return ipcRenderer.invoke("isConnectedToAnyGame");
+	},
+	getEvents: (): Promise<Array<UniversalGameEvent | SiegeEvent>> => {
+		return ipcRenderer.invoke("getEvents");
 	},
 
 	// Callbacks
-	onEvent: (callback: (event: unknown) => void) => {
+	onEvent: (callback: (event: UniversalGameEvent | SiegeEvent) => void) => {
 		ipcRenderer.on("onEvent", (__, payload) => {
 			callback(payload);
 		});

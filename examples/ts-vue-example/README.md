@@ -5,8 +5,10 @@ An Overlayed Electron application with:
 - Vue 3 (Easily replaceable with your favorite frontend framework)
 - Typescript
 - Vite
+- Tailwind CSS
 - HMR support in render process
-- Auto reload for electron process
+- Hot reload for electron process
+- Typesafe IPC setup
 
 [Overlayed Documentation](https://docs.overlayed.gg)
 
@@ -30,3 +32,7 @@ $ pnpm install
 ```bash
 $ pnpm dev
 ```
+
+## Project Structure
+
+This example comes with our recommended architecture for an Overlayed application.

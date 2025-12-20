@@ -9,13 +9,13 @@
 		"start": "tsc && ogg-electron ./dist/main.js"
 	},
 	"dependencies": {
-		"@overlayed/app": "^0.34.4",
+		"@overlayed/app": "0.34.5",
 		"@overlayed/electron": "33.3.0-2",
 		"electron": "33.3.0"
 	},
 	"devDependencies": {
-		"@types/node": "^18.0.0",
-		"typescript": "^5.0.0"
+		"@types/node": "^25.0.3",
+		"typescript": "^5.9.3"
 	},
 	"author": "Overlayed",
 	"license": "ISC"

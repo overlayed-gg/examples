@@ -14,9 +14,13 @@ export interface CoreWindowOptions {
 	browserWindow?: BrowserWindowConstructorOptions;
 }
 
-export class CoreWindow<TWindow extends BrowserWindow | RenderWindow = BrowserWindow> {
+export abstract class CoreWindow<TWindow extends BrowserWindow | RenderWindow = BrowserWindow> {
 	protected logger: LoggerScope;
-	protected browserWindow: TWindow | null = null;
+	protected _browserWindow: TWindow | null = null;
+
+	public get browserWindow(): TWindow | null {
+		return this._browserWindow;
+	}
 
 	public constructor(name: string) {
 		this.logger = overlay.log.scope(name);
@@ -24,19 +28,19 @@ export class CoreWindow<TWindow extends BrowserWindow | RenderWindow = BrowserWi
 
 	public create(options: CoreWindowOptions) {
 		this.logger.info("Creating window");
-		this.browserWindow = this.getNewBrowserWindow(options.browserWindow);
+		this._browserWindow = this.getNewBrowserWindow(options.browserWindow);
 
 		const url = this.getBrowserWindowUrl(options);
-		this.browserWindow?.loadURL(url.toString());
+		this._browserWindow?.loadURL(url.toString());
 	}
 
 	public destroy() {
 		this.logger.info("Destroying window");
-		this.browserWindow?.destroy();
+		this._browserWindow?.destroy();
 	}
 
-	public sendChannelMessage<T extends keyof IPCCallbacks>(channel: T, ...args: IPCCallbackParameters<T>) {
-		this.browserWindow?.webContents.send(channel, ...args);
+	public triggerCallback<T extends keyof IPCCallbacks>(name: T, ...args: IPCCallbackParameters<T>) {
+		this._browserWindow?.webContents.send(name, ...args);
 	}
 
 	protected getNewBrowserWindow(options?: BrowserWindowConstructorOptions): TWindow {

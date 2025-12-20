@@ -1,6 +1,7 @@
 import { BrowserWindow } from "electron";
 import { typedIpcMain } from "./ipcMain";
 import { overlay } from "../overlayed";
+import { OverlayedEventManager } from "../managers/overlayedEventManager";
 
 export function initIpcElectron(): void {
 	const logger = overlay.log.scope("ipcElectron");
@@ -17,8 +18,16 @@ export function initIpcElectron(): void {
 		window?.minimize();
 	});
 
-	// Callbacks
+	// Getters
+	typedIpcMain.handle("getEvents", async () => {
+		return OverlayedEventManager.getInstance().events;
+	});
+
 	typedIpcMain.handle("hasActiveGames", async () => {
 		return overlay.hasAnyActiveGames();
+	});
+
+	typedIpcMain.handle("isConnectedToAnyGame", async () => {
+		return overlay.windows.getActiveGameInfo().isConnected;
 	});
 }

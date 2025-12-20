@@ -17,30 +17,24 @@
 		"typecheck": "npm run typecheck:node && npm run typecheck:web"
 	},
 	"dependencies": {
-		"@electron-toolkit/preload": "^3.0.2",
 		"@electron-toolkit/utils": "^4.0.0",
-		"@overlayed/app": "^0.34.4",
+		"@overlayed/app": "0.34.5",
 		"@tailwindcss/vite": "^4.1.18",
+		"@vueuse/core": "^14.1.0",
 		"tailwindcss": "^4.1.18"
 	},
 	"devDependencies": {
 		"@electron-toolkit/tsconfig": "^2.0.0",
 		"@overlayed/electron": "33.3.0-4",
-		"@types/node": "^22.18.6",
-		"@vitejs/plugin-vue": "^6.0.1",
+		"@types/node": "^25.0.3",
+		"@vitejs/plugin-vue": "^6.0.3",
 		"electron": "33.3.0",
-		"electron-builder": "^25.1.8",
-		"electron-vite": "^4.0.1",
-		"prettier": "^3.6.2",
-		"typescript": "^5.9.2",
-		"vite": "^7.1.6",
-		"vue": "^3.5.21",
-		"vue-tsc": "^3.0.7"
-	},
-	"pnpm": {
-		"onlyBuiltDependencies": [
-			"electron",
-			"esbuild"
-		]
+		"electron-builder": "^26.0.12",
+		"electron-vite": "^5.0.0",
+		"prettier": "^3.7.4",
+		"typescript": "^5.9.3",
+		"vite": "^7.3.0",
+		"vue": "^3.5.26",
+		"vue-tsc": "^3.2.0"
 	}
 }

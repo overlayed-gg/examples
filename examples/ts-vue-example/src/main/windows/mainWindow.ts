@@ -4,11 +4,21 @@ import { CoreWindow, type CoreWindowOptions } from "./core/coreWindow";
 import { deepMerge } from "../utils/deepMerge";
 import type { UniversalGameEvent } from "@overlayed/app/universal";
 import type { SiegeEvent } from "@overlayed/app/siege";
+import { fileURLToPath } from "url";
+
+const preloadPath = fileURLToPath(new URL("../preload/index.cjs", import.meta.url));
 
 export class MainWindow extends CoreWindow {
 	private readonly options: CoreWindowOptions = {
 		browserWindow: {
 			frame: false,
+			width: 900,
+			height: 670,
+			show: false,
+			autoHideMenuBar: true,
+			webPreferences: {
+				preload: preloadPath,
+			},
 		},
 	};
 
@@ -19,15 +29,18 @@ export class MainWindow extends CoreWindow {
 		super("MainWindow");
 	}
 
-	public override create(options: CoreWindowOptions) {
-		super.create(deepMerge(this.options, options));
+	public override create(options?: CoreWindowOptions) {
+		super.create(deepMerge(this.options, options ?? {}));
 		this.subscribeToEvents();
 
-		this.browserWindow?.on("ready-to-show", () => {
-			this.browserWindow?.show();
+		this._browserWindow?.on("ready-to-show", () => {
+			this._browserWindow?.show();
+
+			overlay.universal.readyForGameEvents();
+			overlay.siege.readyForGameEvents();
 		});
 
-		this.browserWindow?.webContents.setWindowOpenHandler((details) => {
+		this._browserWindow?.webContents.setWindowOpenHandler((details) => {
 			shell.openExternal(details.url);
 			return { action: "deny" };
 		});
@@ -51,10 +64,12 @@ export class MainWindow extends CoreWindow {
 	}
 
 	private onAnyUniversalEvent(event: UniversalGameEvent) {
-		this.sendChannelMessage("onEvent", event);
+		this.triggerCallback("onEvent", event);
+		this.logger.log("Universal event");
 	}
 
 	private onAnySiegeEvent(event: SiegeEvent) {
-		this.sendChannelMessage("onEvent", event);
+		this.triggerCallback("onEvent", event);
+		this.logger.log("Siege event");
 	}
 }

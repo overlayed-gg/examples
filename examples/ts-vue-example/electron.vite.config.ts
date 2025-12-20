@@ -1,5 +1,5 @@
 import { resolve } from "path";
-import { defineConfig, type ElectronViteConfig, externalizeDepsPlugin } from "electron-vite";
+import { defineConfig, type ElectronViteConfigExport } from "electron-vite";
 import vue from "@vitejs/plugin-vue";
 import tailwindcss from "@tailwindcss/vite";
 
@@ -18,8 +18,8 @@ export default defineConfig(async () => {
 			plugins: [vue(), tailwindcss()],
 		},
 		main: {
-			plugins: [externalizeDepsPlugin()],
 			build: {
+				externalizeDeps: true,
 				rollupOptions: {
 					output: {
 						format: "es",
@@ -30,14 +30,13 @@ export default defineConfig(async () => {
 			},
 		},
 		preload: {
-			plugins: [externalizeDepsPlugin()],
 			build: {
 				rollupOptions: {
 					output: {
-						format: "es",
+						format: "cjs",
 					},
 				},
 			},
 		},
-	} satisfies ElectronViteConfig;
+	} satisfies ElectronViteConfigExport;
 });

@@ -4,7 +4,9 @@ import electron from "electron";
 
 export const overlay = overlayed({
 	universal: true,
-	applicationId: "sample-app",
+	debug: true,
+	silent: false,
+	applicationId: "01KC2QAEZ4FJW3M5W7W89CJK0V",
 	electron: electron,
 	modules: [Siege.module()],
 	keybinds: {

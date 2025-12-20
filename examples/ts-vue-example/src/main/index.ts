@@ -1,65 +1,21 @@
-import { app, BrowserWindow } from "electron";
-import { fileURLToPath } from "url";
+import { app } from "electron";
 import { electronApp } from "@electron-toolkit/utils";
 import { MainWindow } from "./windows/mainWindow";
-import { InGameWindow } from "./windows/core/inGameWindow";
-import { overlay } from "./overlayed";
 import { initIpcElectron } from "./ipc/ipcElectron";
-import { MainInGameWindow } from "./windows/mainInGameWindow";
+import { WindowsManager } from "./managers/windowsManager";
+import { GameLaunchManager } from "./managers/gameLaunchManager";
 
-const preloadPath = fileURLToPath(new URL("../preload/index.mjs", import.meta.url));
+function setupApp(): void {
+	const windowsManager = WindowsManager.getInstance().init();
+	const gameLaunchManager = GameLaunchManager.getInstance().init();
 
-function setupWindows(): void {
-	const mainWindow = new MainWindow();
-	mainWindow.create({
-		browserWindow: {
-			width: 900,
-			height: 670,
-			show: false,
-			autoHideMenuBar: true,
-			webPreferences: {
-				preload: preloadPath,
-				sandbox: false,
-			},
-		},
-	});
-
-	let mainInGameWindowCreated = false;
-	overlay.on("gameReady", ({ inGameRenderingSupported }) => {
-		if (!inGameRenderingSupported) {
-			return;
-		}
-
-		if (mainInGameWindowCreated) {
-			return;
-		}
-
-		const inGameWindow = new MainInGameWindow();
-		inGameWindow.create({
-			browserWindow: {
-				width: 900,
-				height: 670,
-				autoHideMenuBar: true,
-				webPreferences: {
-					preload: preloadPath,
-					sandbox: false,
-				},
-			},
-		});
-
-		mainInGameWindowCreated = true;
-
-		overlay.on("gameClose", () => {
-			inGameWindow.destroy();
-		});
-
-		app.once("quit", () => {
-			inGameWindow.destroy();
-		});
-	});
+	const mainWindow = windowsManager.getWindow(MainWindow);
+	mainWindow.create();
 
 	app.once("quit", () => {
 		mainWindow.destroy();
+		windowsManager.destroy();
+		gameLaunchManager.destroy();
 	});
 }
 
@@ -67,13 +23,7 @@ app.whenReady().then(() => {
 	electronApp.setAppUserModelId("com.electron");
 
 	initIpcElectron();
-	setupWindows();
-
-	app.on("activate", function () {
-		if (BrowserWindow.getAllWindows().length === 0) {
-			setupWindows();
-		}
-	});
+	setupApp();
 });
 
 app.on("window-all-closed", () => {
