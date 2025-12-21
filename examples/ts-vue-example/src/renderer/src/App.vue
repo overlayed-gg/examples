@@ -1,52 +1,94 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
-import IconClose from "./components/icons/IconClose.vue";
-import IconMinimize from "./components/icons/IconMinimize.vue";
-import { useIntervalFn } from "@vueuse/core";
+import { computed, reactive, ref } from "vue";
+import { useClipboard, useIntervalFn } from "@vueuse/core";
+import WindowNav from "@renderer/components/WindowNav.vue";
+import type { UniversalGameEvent } from "@overlayed/app/universal";
+import type { SiegeEvent } from "@overlayed/app/siege";
+
+type Event = UniversalGameEvent | SiegeEvent;
 
 const { ipc } = window;
 
-const events = ref<unknown[]>([]);
+const events = ref<Array<Event>>([]);
 const isConnectedToAnyGame = ref(false);
-const hasActiveGames = ref(false);
-const lastFiftyEvents = computed(() => events.value.slice(0, 50));
+const clipboard = useClipboard();
+const search = ref("");
+
+const eventsToShow = computed(() =>
+	events.value.filter((event) => event.type.toLowerCase().includes(search.value.toLowerCase())).slice(0, 250),
+);
 
 useIntervalFn(async () => {
 	isConnectedToAnyGame.value = await ipc.isConnectedToAnyGame();
-	hasActiveGames.value = await ipc.hasActiveGames();
 }, 1000);
 
-ipc.onEvent((event) => {
-	events.value.unshift(event);
-});
+ipc.getEvents()
+	.then((storedEvents) => {
+		events.value = storedEvents;
+	})
+	.finally(() => {
+		ipc.onEvent((event) => {
+			events.value.unshift(event);
+		});
+	});
 </script>
 
 <template>
-	<div class="window-nav flex justify-between px-4 py-2.5 gap-2 bg-zinc-950 border-b border-zinc-700">
-		<div class="text-sm text-zinc-100">
-			Overlayed Example App
-			<div
-				class="min-w-2 min-h-2 size-2 inline-block rounded-full ml-1"
-				:class="isConnectedToAnyGame ? 'bg-emerald-500' : 'bg-red-500'"
-			></div>
-		</div>
-		<div class="flex gap-4">
-			<button class="hover:text-emerald-500" @click="ipc.minimizeWindow()"><IconMinimize /></button>
-			<button class="hover:text-emerald-500" @click="ipc.closeWindow()"><IconClose /></button>
-		</div>
-	</div>
-	<div class="flex flex-col gap-2 p-4 h-full">
+	<WindowNav />
+	<div class="flex flex-col h-full max-h-[calc(100vh-50px)] overflow-y-auto">
 		<template v-if="!isConnectedToAnyGame">
 			<div class="text-base text-zinc-300">No active games</div>
 		</template>
-		<template v-else-if="lastFiftyEvents.length === 0">
+		<template v-else-if="events.length === 0">
 			<div class="text-base text-zinc-300">Listening for events...</div>
 		</template>
 		<template v-else>
-			<pre v-for="event in lastFiftyEvents" :key="JSON.stringify(event)" class="text-xs">
-				{{ event }}
-			</pre
-			>
+			<div class="flex justify-between p-2 sticky top-0 bg-zinc-900">
+				<label class="flex items-center gap-2">
+					<span>Search</span>
+					<input
+						type="search"
+						placeholder="logged_in"
+						v-model="search"
+						class="bg-zinc-800 px-2 py-1 rounded-sm focus:outline-none"
+					/>
+				</label>
+				<button
+					class="bg-zinc-700 px-3 py-1 rounded-sm cursor-pointer hover:bg-zinc-600"
+					@click="clipboard.copy(JSON.stringify(events, null, 2))"
+				>
+					Copy Events to Clipboard
+				</button>
+			</div>
+			<table>
+				<thead>
+					<tr class="bg-zinc-800 rounded-t-md sticky top-11">
+						<th class="py-2 text-left px-3">Time</th>
+						<th class="py-2 text-left px-3">Event</th>
+						<th class="py-2 text-left px-3">Content</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr
+						v-for="event in eventsToShow"
+						:key="JSON.stringify(event)"
+						class="group border-b border-zinc-700"
+					>
+						<td class="py-2 text-left px-3 border-b border-zinc-700">
+							{{ new Date(event.creation_time).toLocaleString().split(" ")[1] }}
+						</td>
+						<td class="py-2 text-left px-3 border-b border-zinc-700">
+							{{ event.type }}
+						</td>
+						<td class="py-2 text-left px-3 border-b border-zinc-700">
+							<pre class="max-h-[300px] overflow-y-auto text-xs"
+								>{{ "content" in event ? event.content : "-" }}
+							</pre
+							>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</template>
 	</div>
 </template>

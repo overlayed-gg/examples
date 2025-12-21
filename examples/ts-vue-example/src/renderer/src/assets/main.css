@@ -3,3 +3,19 @@
 body {
 	@apply text-sm text-white h-screen overflow-x-hidden overflow-y-hidden bg-zinc-900;
 }
+
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(110, 110, 110, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+	@apply bg-zinc-700 rounded-md;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	@apply bg-zinc-600;
+}

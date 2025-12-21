@@ -11,10 +11,10 @@ export interface OverlayedEventManagerEvents {
 class OverlayedEventManagerSingleton extends EventEmitterManager<OverlayedEventManagerEvents> {
 	private readonly boundOnAnyUniversalEvent = this.onAnyUniversalEvent.bind(this);
 	private readonly boundOnAnySiegeEvent = this.onAnySiegeEvent.bind(this);
-	private _events: Array<UniversalGameEvent | SiegeEvent> = [];
+	private _eventsHistory: Array<UniversalGameEvent | SiegeEvent> = [];
 
 	public get events() {
-		return this._events;
+		return this._eventsHistory;
 	}
 
 	public constructor() {
@@ -40,17 +40,17 @@ class OverlayedEventManagerSingleton extends EventEmitterManager<OverlayedEventM
 	}
 
 	public clearEvents(): void {
-		this._events = [];
+		this._eventsHistory = [];
 	}
 
 	private onAnyUniversalEvent(event: UniversalGameEvent): void {
-		this._events.push(event);
+		this._eventsHistory.push(event);
 		this.emit("event", event);
 		this.logger.debug("onAnyUniversalEvent", event);
 	}
 
 	private onAnySiegeEvent(event: SiegeEvent): void {
-		this._events.push(event);
+		this._eventsHistory.push(event);
 		this.emit("event", event);
 		this.logger.debug("onAnySiegeEvent", event);
 	}

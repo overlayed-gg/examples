@@ -45,13 +45,13 @@ export class MainInGameWindow extends InGameWindow {
 				return;
 			}
 
-			this.logger.info("Toggling in game window", this._browserWindow?.isShown());
-
 			if (this._browserWindow?.isShown()) {
 				this._browserWindow?.hide();
 			} else {
 				this._browserWindow?.show();
 			}
+
+			this.logger.info("Toggling in game window", this._browserWindow?.isShown());
 		});
 	}
 }
