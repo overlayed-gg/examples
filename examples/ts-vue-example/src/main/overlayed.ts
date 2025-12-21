@@ -6,7 +6,7 @@ export const overlay = overlayed({
 	universal: true,
 	debug: true,
 	silent: false,
-	applicationId: "01KC2QAEZ4FJW3M5W7W89CJK0V",
+	applicationId: import.meta.env.VITE_APPLICATION_ID,
 	electron: electron,
 	modules: [Siege.module()],
 	keybinds: {

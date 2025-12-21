@@ -1,17 +1,18 @@
 {
-  "extends": "./tsconfig.json",
-  "include": [
-    "src/renderer/src/env.d.ts",
-    "src/renderer/src/**/*",
-    "src/renderer/src/**/*.vue",
-    "src/preload/*.d.ts"
-  ],
-  "compilerOptions": {
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "composite": true,
-    "baseUrl": ".",
-    "paths": {
-      "@renderer/*": ["src/renderer/src/*"]
-    }
-  }
+	"extends": "./tsconfig.json",
+	"include": [
+		"src/renderer/src/env.d.ts",
+		"src/renderer/src/**/*",
+		"src/renderer/src/**/*.vue",
+		"src/preload/*.d.ts",
+		"vite-env.d.ts"
+	],
+	"compilerOptions": {
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
+		"composite": true,
+		"baseUrl": ".",
+		"paths": {
+			"@renderer/*": ["src/renderer/src/*"]
+		}
+	}
 }

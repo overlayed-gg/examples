@@ -16,10 +16,9 @@ An Overlayed Electron application with:
 
 ### Update Project
 
-Before use, update the following:
+Before use, create an `.env` file based on the `.env.example` file, and fill in the fields:
 
-1. `overlayed.config.ts` & `overlayed.ts` - replace `applicationId` with your applicationId.
-2. Configure `overlayed.ts` based on your needs.
+- `VITE_APPLICATION_ID` - can be found [https://overlay.dev/settings](https://overlay.dev/settings)
 
 ### Install
 

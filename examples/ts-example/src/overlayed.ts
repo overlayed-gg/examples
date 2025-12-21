@@ -3,7 +3,7 @@ import * as Siege from "@overlayed/app/siege";
 import electron from "electron";
 
 export const overlay = overlayed({
-	applicationId: "sample-app",
+	applicationId: import.meta.env.VITE_APPLICATION_ID,
 	universal: true,
 	electron: electron,
 	modules: [Siege.module()],

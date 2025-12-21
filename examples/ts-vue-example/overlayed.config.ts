@@ -1,7 +1,12 @@
 import { defineConfig } from "@overlayed/app";
+import "dotenv/config";
+
+if (!process.env.VITE_APPLICATION_ID) {
+	throw new Error("VITE_APPLICATION_ID is not set");
+}
 
 export default defineConfig({
-	applicationId: "01KC2QAEZ4FJW3M5W7W89CJK0V",
+	applicationId: process.env.VITE_APPLICATION_ID,
 	app: {
 		include: ["./main/**/*", "./preload/**/*"],
 	},

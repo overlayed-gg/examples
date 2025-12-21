@@ -16,8 +16,12 @@ npm i -g pnpm
 pnpm install
 ```
 
-3. Run the application
+3. Create an `.env` file based on the `.env.example` file, and fill in the fields:
+
+- `VITE_APPLICATION_ID` - can be found [https://overlay.dev/settings](https://overlay.dev/settings)
+
+4. Run the application
 
 ```bash
-pnpm run start
+pnpm start
 ```
