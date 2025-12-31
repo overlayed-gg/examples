@@ -11,8 +11,8 @@ importers:
   examples/ts-example:
     dependencies:
       '@overlayed/app':
-        specifier: 0.34.5
-        version: 0.34.5(electron@33.3.0)(typescript@5.9.3)
+        specifier: 0.34.10
+        version: 0.34.10(electron@33.3.0)(typescript@5.9.3)
       '@overlayed/electron':
         specifier: 33.3.0-2
         version: 33.3.0-2
@@ -33,8 +33,8 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0(electron@33.3.0)
       '@overlayed/app':
-        specifier: 0.34.8
-        version: 0.34.8(electron@33.3.0)(typescript@5.9.3)
+        specifier: 0.34.10
+        version: 0.34.10(electron@33.3.0)(typescript@5.9.3)
       '@tailwindcss/vite':
         specifier: ^4.1.18
         version: 4.1.18(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2))
@@ -608,18 +608,8 @@ packages:
     engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
     deprecated: This functionality has been moved to @npmcli/fs
 
-  '@overlayed/app@0.34.5':
-    resolution: {integrity: sha512-qJuv3IXxXcRR4mZHKAVMNtk+faJGzUlpv6elQQtGty/UKv65MdBo76DW3m+YtvlxahlVjEa1j5jSmawJOz0lBQ==}
-    engines: {node: '>=20.10.0'}
-    peerDependencies:
-      electron: 33.3.0
-      typescript: '*'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-
-  '@overlayed/app@0.34.8':
-    resolution: {integrity: sha512-7ZHXULz6BEJsce4OZqqPMvaVLINCD0uzXzBlQTrpNQMwNmWUbAqxxup8Y3HSM4N6O0sBwNx1RP/M/a29emARtg==}
+  '@overlayed/app@0.34.10':
+    resolution: {integrity: sha512-/i2bVJ+Ug88KBHVstxrP0t0NpJYv+2rRNZJbI0B6+gdLtAD34b6M49I8xJthUqBiFeqrz4PlgPhAhI9eLgq2DA==}
     engines: {node: '>=20.10.0'}
     peerDependencies:
       electron: 33.3.0
@@ -3101,21 +3091,7 @@ snapshots:
       mkdirp: 1.0.4
       rimraf: 3.0.2
 
-  '@overlayed/app@0.34.5(electron@33.3.0)(typescript@5.9.3)':
-    dependencies:
-      arktype: 2.1.29
-      electron: 33.3.0
-      fs-extra: 11.3.2
-      glob: 11.1.0
-      jiti: 2.6.1
-      jszip: 3.10.1
-      mitt: 3.0.1
-      systeminformation: 5.27.14
-      xior: 0.7.8
-    optionalDependencies:
-      typescript: 5.9.3
-
-  '@overlayed/app@0.34.8(electron@33.3.0)(typescript@5.9.3)':
+  '@overlayed/app@0.34.10(electron@33.3.0)(typescript@5.9.3)':
     dependencies:
       arktype: 2.1.29
       electron: 33.3.0

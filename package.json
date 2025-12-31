@@ -15,6 +15,7 @@
 	},
 	"pnpm": {
 		"onlyBuiltDependencies": [
+			"@overlayed/electron",
 			"electron",
 			"esbuild"
 		]
