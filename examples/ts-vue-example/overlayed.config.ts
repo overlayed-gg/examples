@@ -8,7 +8,7 @@ if (!process.env.VITE_APPLICATION_ID) {
 export default defineConfig({
 	applicationId: process.env.VITE_APPLICATION_ID,
 	app: {
-		include: ["./main/**/*", "./preload/**/*"],
+		include: ["./out/main/**/*", "./out/preload/**/*"],
 	},
 	site: {
 		baseDir: "./out/renderer",
