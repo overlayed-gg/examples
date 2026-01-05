@@ -4,6 +4,11 @@ import { MainWindow } from "./windows/mainWindow";
 import { initIpcElectron } from "./ipc/ipcElectron";
 import { WindowsManager } from "./managers/windowsManager";
 import { GameLaunchManager } from "./managers/gameLaunchManager";
+import { assertNoProhibitedArgs } from "@overlayed/app/security";
+
+if (import.meta.env.PROD) {
+	assertNoProhibitedArgs();
+}
 
 function setupApp(): void {
 	const windowsManager = WindowsManager.getInstance().init();

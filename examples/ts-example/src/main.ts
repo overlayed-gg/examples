@@ -3,38 +3,41 @@ import * as path from "node:path";
 import { fileURLToPath } from "node:url";
 import { overlay } from "./overlayed";
 import { AppWindow } from "./appWindow";
+import { assertNoProhibitedArgs } from "@overlayed/app/security";
+
+assertNoProhibitedArgs();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 function createWindow() {
-	const mainWindow = new BrowserWindow({
-		width: 800,
-		height: 600,
-		webPreferences: {
-			nodeIntegration: false,
-			contextIsolation: true,
-		},
-	});
+  const mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: false,
+      contextIsolation: true,
+    },
+  });
 
-	const appWindow = new AppWindow();
-	overlay.on("gameReady", () => {
-		overlay.siege.readyForGameEvents();
-		appWindow.create();
-	});
-	overlay.on("gameClose", () => appWindow.destroy());
+  const appWindow = new AppWindow();
+  overlay.on("gameReady", () => {
+    overlay.siege.readyForGameEvents();
+    appWindow.create();
+  });
+  overlay.on("gameClose", () => appWindow.destroy());
 
-	overlay.siege.on("player_joined", (event) => {
-		console.log(event);
-	});
+  overlay.siege.on("player_joined", (event) => {
+    console.log(event);
+  });
 
-	mainWindow.loadFile(path.join(__dirname, "..", "index.html"));
+  mainWindow.loadFile(path.join(__dirname, "..", "index.html"));
 }
 
 app.whenReady().then(() => {
-	createWindow();
+  createWindow();
 
-	app.on("activate", function () {
-		if (BrowserWindow.getAllWindows().length === 0) createWindow();
-	});
+  app.on("activate", function () {
+    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+  });
 });
