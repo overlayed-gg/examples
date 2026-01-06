@@ -20,6 +20,23 @@ Before use, create an `.env` file based on the `.env.example` file, and fill in 
 
 - `VITE_APPLICATION_ID` - can be found [https://overlay.dev/settings](https://overlay.dev/settings)
 
+### Install the overlayed cli
+
+If you haven't already, install the overlayed cli:
+
+```bash
+pnpm install -g @overlayed/cli
+```
+
+### Initialize the project
+
+This will create development-only files for the project. Read more
+[here](https://docs.overlayed.gg/advanced/local-development)
+
+```bash
+$ overlayed init
+```
+
 ### Install
 
 ```bash

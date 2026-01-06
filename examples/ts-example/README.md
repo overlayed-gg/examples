@@ -4,24 +4,40 @@ This is a minimal example of using Overlayed with TypeScript
 
 ## Setup
 
-1. Install pnpm
+Follow these steps to set up your project:
 
-```bash
-npm i -g pnpm
-```
+1. **Install pnpm** (if you haven't already):
 
-2. Install dependencies:
+   ```bash
+   npm i -g pnpm
+   ```
 
-```bash
-pnpm install
-```
+2. **Install the overlayed CLI** (if you haven't already):
 
-3. Create an `.env` file based on the `.env.example` file, and fill in the fields:
+   ```bash
+   pnpm install -g @overlayed/cli
+   ```
 
-- `VITE_APPLICATION_ID` - can be found [https://overlay.dev/settings](https://overlay.dev/settings)
+3. **Initialize the project**  
+   This will create development-only files for the project.  
+   Read more [here](https://docs.overlayed.gg/advanced/local-development):
 
-4. Run the application
+   ```bash
+   overlayed init
+   ```
 
-```bash
-pnpm start
-```
+4. **Install dependencies:**
+
+   ```bash
+   pnpm install
+   ```
+
+5. **Set up environment variables:**  
+   Create an `.env` file based on the `.env.example` file and fill in the required fields.
+   - `VITE_APPLICATION_ID` – can be found at [https://overlay.dev/settings](https://overlay.dev/settings)
+
+6. **Run the application:**
+
+   ```bash
+   pnpm start
+   ```

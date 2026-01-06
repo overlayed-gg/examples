@@ -11,8 +11,8 @@ importers:
   examples/ts-example:
     dependencies:
       '@overlayed/app':
-        specifier: 0.35.1
-        version: 0.35.1(electron@33.3.0)(typescript@5.9.3)
+        specifier: 0.36.0
+        version: 0.36.0(electron@33.3.0)(typescript@5.9.3)
       '@overlayed/electron':
         specifier: 33.3.0-2
         version: 33.3.0-2
@@ -33,8 +33,8 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0(electron@33.3.0)
       '@overlayed/app':
-        specifier: 0.35.1
-        version: 0.35.1(electron@33.3.0)(typescript@5.9.3)
+        specifier: 0.36.0
+        version: 0.36.0(electron@33.3.0)(typescript@5.9.3)
       '@tailwindcss/vite':
         specifier: ^4.1.18
         version: 4.1.18(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2))
@@ -608,8 +608,8 @@ packages:
     engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
     deprecated: This functionality has been moved to @npmcli/fs
 
-  '@overlayed/app@0.35.1':
-    resolution: {integrity: sha512-usFvq3GkkQTPgzoqXiMlFyJZgjRhatDZT+kgLwd1J8nlJ9SIu/DRK9NQPsGd06kyYOHODXKd71gNcwuc4dCOXA==}
+  '@overlayed/app@0.36.0':
+    resolution: {integrity: sha512-BAacY4ySnzaMgAzhmwP886R4TFf8XC2Tsp0Ymwcbf0D60BsEFAQEuZwL6hyq/b0Ufm5F2O3GZWAc4fiIZ7gUtw==}
     engines: {node: '>=20.10.0'}
     peerDependencies:
       electron: 33.3.0
@@ -3078,7 +3078,7 @@ snapshots:
       mkdirp: 1.0.4
       rimraf: 3.0.2
 
-  '@overlayed/app@0.35.1(electron@33.3.0)(typescript@5.9.3)':
+  '@overlayed/app@0.36.0(electron@33.3.0)(typescript@5.9.3)':
     dependencies:
       arktype: 2.1.29
       electron: 33.3.0
@@ -3087,6 +3087,7 @@ snapshots:
       jiti: 2.6.1
       jszip: 3.10.1
       mitt: 3.0.1
+      picocolors: 1.1.1
       systeminformation: 5.27.14
       xior: 0.7.8
     optionalDependencies:
