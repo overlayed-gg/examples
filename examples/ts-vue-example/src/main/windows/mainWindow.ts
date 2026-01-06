@@ -1,9 +1,6 @@
 import { shell } from "electron";
-import { overlay } from "../overlayed";
 import { CoreWindow, type CoreWindowOptions } from "./core/coreWindow";
 import { deepMerge } from "../utils/deepMerge";
-import type { UniversalGameEvent } from "@overlayed/app/universal";
-import type { SiegeEvent } from "@overlayed/app/siege";
 import { fileURLToPath } from "url";
 
 const preloadPath = fileURLToPath(new URL("../preload/index.cjs", import.meta.url));

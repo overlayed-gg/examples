@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, reactive, ref } from "vue";
+import { computed, ref } from "vue";
 import { useClipboard, useIntervalFn } from "@vueuse/core";
 import WindowNav from "@renderer/components/WindowNav.vue";
 import type { UniversalGameEvent } from "@overlayed/app/universal";
