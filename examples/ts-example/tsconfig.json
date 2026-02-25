@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		"module": "preserve",
+		"moduleResolution": "bundler",
+		"noImplicitAny": true,
+		"strict": true,
+		"outDir": "dist",
+		"baseUrl": ".",
+		"skipLibCheck": true
+	},
+	"include": ["src", "vite-env.d.ts"],
+	"exclude": ["node_modules", "dist"]
+}
