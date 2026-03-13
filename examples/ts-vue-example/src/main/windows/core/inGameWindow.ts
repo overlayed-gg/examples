@@ -1,4 +1,4 @@
-import { RenderWindow, RenderWindowConstructorOptions } from "@overlayed/app";
+import { type RenderWindow, type RenderWindowConstructorOptions } from "@overlayed/app";
 import { CoreWindow, type CoreWindowOptions } from "./coreWindow";
 import { overlay } from "../../overlayed";
 import { deepMerge } from "../../utils/deepMerge";
