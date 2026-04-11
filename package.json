@@ -18,6 +18,9 @@
 			"@overlayed/electron",
 			"electron",
 			"esbuild"
+		],
+		"ignoredBuiltDependencies": [
+			"electron-winstaller"
 		]
 	}
 }

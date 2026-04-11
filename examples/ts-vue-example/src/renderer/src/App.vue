@@ -98,7 +98,7 @@ ipc.getEvents()
 	-webkit-app-region: drag;
 }
 
-.window-nav button {
+.window-nav :deep(button) {
 	-webkit-app-region: no-drag;
 }
 </style>
