@@ -8,33 +8,14 @@ importers:
 
   .: {}
 
-  examples/ts-example:
-    dependencies:
-      '@overlayed/app':
-        specifier: 0.36.0
-        version: 0.36.0(electron@33.3.0)(typescript@5.9.3)
-      '@overlayed/electron':
-        specifier: 33.3.0-7
-        version: 33.3.0-7(typescript@5.9.3)(vue-tsc@3.2.1(typescript@5.9.3))
-      electron:
-        specifier: 33.3.0
-        version: 33.3.0
-    devDependencies:
-      '@types/node':
-        specifier: ^25.0.3
-        version: 25.0.3
-      typescript:
-        specifier: ^5.9.3
-        version: 5.9.3
-
   examples/ts-vue-example:
     dependencies:
       '@electron-toolkit/utils':
         specifier: ^4.0.0
         version: 4.0.0(electron@33.3.0)
       '@overlayed/app':
-        specifier: 1.0.3
-        version: 1.0.3(electron@33.3.0)(typescript@5.9.3)
+        specifier: 1.2.0
+        version: 1.2.0(electron@33.3.0)(typescript@5.9.3)
       '@overlayed/cli':
         specifier: ^1.0.1
         version: 1.0.1(@types/node@25.0.3)
@@ -785,18 +766,8 @@ packages:
     engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
     deprecated: This functionality has been moved to @npmcli/fs
 
-  '@overlayed/app@0.36.0':
-    resolution: {integrity: sha512-BAacY4ySnzaMgAzhmwP886R4TFf8XC2Tsp0Ymwcbf0D60BsEFAQEuZwL6hyq/b0Ufm5F2O3GZWAc4fiIZ7gUtw==}
-    engines: {node: '>=20.10.0'}
-    peerDependencies:
-      electron: 33.3.0
-      typescript: '*'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-
-  '@overlayed/app@1.0.3':
-    resolution: {integrity: sha512-MKz8B72Hq1wGSbNPsKUthRmnVXbE/x3g4nxDGdzZGOeoqm8cpdTjX1BwT0ZXx2aoZewbMhfJV4V4LabbbJDuew==}
+  '@overlayed/app@1.2.0':
+    resolution: {integrity: sha512-02VIx0ZEtkqFMsAypZqbdPqmVX3aQPGAsVHgQcj4O0JPithuTuk3pcgIsDRAMTzChHUL8/vsgod4IPlay2boyw==}
     engines: {node: '>=20.10.0'}
     peerDependencies:
       electron: 33.3.0
@@ -1375,6 +1346,7 @@ packages:
   '@xmldom/xmldom@0.8.11':
     resolution: {integrity: sha512-cQzWCtO6C8TQiYl1ruKNn2U6Ao4o4WBBcbL61yJl84x+j5sOWWFU9X7DpND8XZG3daDppSsigMdfAIl2upQBRw==}
     engines: {node: '>=10.0.0'}
+    deprecated: this version has critical issues, please update to the latest version
 
   abbrev@1.1.1:
     resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
@@ -3950,22 +3922,7 @@ snapshots:
       mkdirp: 1.0.4
       rimraf: 3.0.2
 
-  '@overlayed/app@0.36.0(electron@33.3.0)(typescript@5.9.3)':
-    dependencies:
-      arktype: 2.1.29
-      electron: 33.3.0
-      fs-extra: 11.3.2
-      glob: 11.1.0
-      jiti: 2.6.1
-      jszip: 3.10.1
-      mitt: 3.0.1
-      picocolors: 1.1.1
-      systeminformation: 5.27.14
-      xior: 0.7.8
-    optionalDependencies:
-      typescript: 5.9.3
-
-  '@overlayed/app@1.0.3(electron@33.3.0)(typescript@5.9.3)':
+  '@overlayed/app@1.2.0(electron@33.3.0)(typescript@5.9.3)':
     dependencies:
       arktype: 2.1.29
       builder-util-runtime: 9.5.1

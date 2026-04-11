@@ -50,13 +50,15 @@ export abstract class CoreWindow<TWindow extends BrowserWindow | RenderWindow = 
 	private getBrowserWindowUrl(options: CoreWindowOptions) {
 		const { path = "/" } = options;
 
-		let urlToLoad = `https://your-site.overlayedapps.com`;
+		let urlToLoad: string;
 		if (is.dev) {
 			if (!process.env.ELECTRON_RENDERER_URL) {
 				throw new Error("ELECTRON_RENDERER_URL is not set in dev");
 			}
 
 			urlToLoad = process.env.ELECTRON_RENDERER_URL;
+		} else {
+			urlToLoad = overlay.windows.getProductionSiteUrl().toString();
 		}
 
 		return new URL(`${urlToLoad}${path}`);
