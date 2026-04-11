@@ -10,52 +10,52 @@ importers:
 
   examples/ts-vue-example:
     dependencies:
-      '@electron-toolkit/utils':
-        specifier: ^4.0.0
-        version: 4.0.0(electron@33.3.0)
       '@overlayed/app':
         specifier: 1.3.2
         version: 1.3.2(electron@33.3.0)(typescript@5.9.3)
-      '@overlayed/cli':
-        specifier: ^1.0.3
-        version: 1.0.3(@types/node@25.6.0)
-      '@tailwindcss/vite':
-        specifier: ^4.2.2
-        version: 4.2.2(vite@7.3.2(@types/node@25.6.0)(jiti@2.6.1)(lightningcss@1.32.0))
-      '@vueuse/core':
-        specifier: ^14.2.1
-        version: 14.2.1(vue@3.5.32(typescript@5.9.3))
-      electron-updater:
-        specifier: ^6.8.3
-        version: 6.8.3
-      tailwindcss:
-        specifier: ^4.2.2
-        version: 4.2.2
     devDependencies:
       '@electron-toolkit/tsconfig':
         specifier: ^2.0.0
-        version: 2.0.0(@types/node@25.6.0)
+        version: 2.0.0(@types/node@25.0.3)
+      '@electron-toolkit/utils':
+        specifier: ^4.0.0
+        version: 4.0.0(electron@33.3.0)
+      '@overlayed/cli':
+        specifier: ^1.0.3
+        version: 1.0.3(@types/node@25.0.3)
       '@overlayed/electron':
         specifier: 33.3.0-7
-        version: 33.3.0-7(typescript@5.9.3)(vue-tsc@3.2.6(typescript@5.9.3))
+        version: 33.3.0-7(typescript@5.9.3)(vue-tsc@3.2.1(typescript@5.9.3))
+      '@tailwindcss/vite':
+        specifier: ^4.1.18
+        version: 4.1.18(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2))
       '@types/node':
         specifier: ^25.6.0
         version: 25.6.0
       '@vitejs/plugin-vue':
-        specifier: ^6.0.5
-        version: 6.0.5(vite@7.3.2(@types/node@25.6.0)(jiti@2.6.1)(lightningcss@1.32.0))(vue@3.5.32(typescript@5.9.3))
+        specifier: ^6.0.3
+        version: 6.0.3(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2))(vue@3.5.26(typescript@5.9.3))
+      '@vueuse/core':
+        specifier: ^14.1.0
+        version: 14.1.0(vue@3.5.26(typescript@5.9.3))
       electron:
         specifier: 33.3.0
         version: 33.3.0
       electron-builder:
-        specifier: ^26.8.1
-        version: 26.8.1(electron-builder-squirrel-windows@26.8.1)
+        specifier: ^26.0.12
+        version: 26.0.12(electron-builder-squirrel-windows@26.0.12)
+      electron-updater:
+        specifier: ^6.8.3
+        version: 6.8.3
       electron-vite:
         specifier: ^5.0.0
         version: 5.0.0(vite@7.3.2(@types/node@25.6.0)(jiti@2.6.1)(lightningcss@1.32.0))
       prettier:
-        specifier: ^3.8.2
-        version: 3.8.2
+        specifier: ^3.7.4
+        version: 3.7.4
+      tailwindcss:
+        specifier: ^4.1.18
+        version: 4.1.18
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -1421,8 +1421,8 @@ packages:
   arkregex@0.0.5:
     resolution: {integrity: sha512-ncYjBdLlh5/QnVsAA8De16Tc9EqmYM7y/WU9j+236KcyYNUXogpz3sC4ATIZYzzLxwI+0sEOaQLEmLmRleaEXw==}
 
-  arktype@2.1.29:
-    resolution: {integrity: sha512-jyfKk4xIOzvYNayqnD8ZJQqOwcrTOUbIU4293yrzAjA3O1dWh61j71ArMQ6tS/u4pD7vabSPe7nG3RCyoXW6RQ==}
+  arktype@2.2.0:
+    resolution: {integrity: sha512-t54MZ7ti5BhOEvzEkgKnWvqj+UbDfWig+DHr5I34xatymPusKLS0lQpNJd8M6DzmIto2QGszHfNKoFIT8tMCZQ==}
 
   assert-plus@1.0.0:
     resolution: {integrity: sha512-NfJ4UzBCcQGLDlQq7nHxH+tv3kyZ0hHQqF5BO6J7tNJeP5do1llPr8dZ8zHonfhAu0PHAdMkSo+8o0wxg9lZWw==}
@@ -3886,7 +3886,7 @@ snapshots:
 
   '@overlayed/app@1.3.2(electron@33.3.0)(typescript@5.9.3)':
     dependencies:
-      arktype: 2.1.29
+      arktype: 2.2.0
       builder-util-runtime: 9.5.1
       electron: 33.3.0
       electron-updater: 6.8.3
@@ -3903,12 +3903,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@overlayed/cli@1.0.3(@types/node@25.6.0)':
+  '@overlayed/cli@1.0.3(@types/node@25.0.3)':
     dependencies:
       '@commander-js/extra-typings': 14.0.0(commander@14.0.3)
-      '@inquirer/prompts': 7.10.1(@types/node@25.6.0)
-      '@listr2/prompt-adapter-inquirer': 3.0.5(@inquirer/prompts@7.10.1(@types/node@25.6.0))(@types/node@25.6.0)(listr2@9.0.5)
-      arktype: 2.1.29
+      '@inquirer/prompts': 7.10.1(@types/node@25.0.3)
+      '@listr2/prompt-adapter-inquirer': 3.0.5(@inquirer/prompts@7.10.1(@types/node@25.0.3))(@types/node@25.0.3)(listr2@9.0.5)
+      arktype: 2.2.0
       commander: 14.0.3
       fs-extra: 11.3.2
       glob: 11.1.0
@@ -4472,7 +4472,7 @@ snapshots:
     dependencies:
       '@ark/util': 0.56.0
 
-  arktype@2.1.29:
+  arktype@2.2.0:
     dependencies:
       '@ark/schema': 0.56.0
       '@ark/util': 0.56.0

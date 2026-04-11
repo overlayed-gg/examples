@@ -19,11 +19,13 @@ export default defineConfig(async () => {
 		},
 		main: {
 			build: {
-				externalizeDeps: true,
+				externalizeDeps: {
+					exclude: ["@overlayed/app"],
+				},
 				rollupOptions: {
 					output: {
 						format: "es",
-						// Strangely preload need this.
+						// Strangely preload needs this.
 						entryFileNames: "index.mjs",
 					},
 				},
