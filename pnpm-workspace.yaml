@@ -2,6 +2,10 @@ packages:
   - examples/**
 
 onlyBuiltDependencies:
-  - '@overlayed/electron'
+  - "@overlayed/electron"
   - electron
   - esbuild
+
+minimumReleaseAge: 4320 # 3 days
+minimumReleaseAgeExclude:
+  - "@overlayed/*"

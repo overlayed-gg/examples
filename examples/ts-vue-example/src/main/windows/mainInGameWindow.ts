@@ -20,7 +20,7 @@ export class MainInGameWindow extends InGameWindow {
 	};
 
 	public constructor() {
-		super();
+		super("MainInGameWindow");
 	}
 
 	public override create(options?: CoreWindowOptions) {

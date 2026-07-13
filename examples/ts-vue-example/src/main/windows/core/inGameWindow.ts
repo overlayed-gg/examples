@@ -14,8 +14,8 @@ export abstract class InGameWindow extends CoreWindow<RenderWindow> {
 		},
 	};
 
-	constructor() {
-		super("InGameWindow");
+	constructor(name: string) {
+		super(name);
 	}
 
 	public override create(options: CoreWindowOptions) {

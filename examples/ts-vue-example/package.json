@@ -19,12 +19,12 @@
 		"bundle:all": "pnpm run build && overlayed bundle --app --site --no-wait"
 	},
 	"dependencies": {
-		"@overlayed/app": "1.3.5"
+		"@overlayed/app": "1.3.11"
 	},
 	"devDependencies": {
 		"@electron-toolkit/tsconfig": "^2.0.0",
 		"@electron-toolkit/utils": "^4.0.0",
-		"@overlayed/cli": "^1.0.3",
+		"@overlayed/cli": "^1.1.2",
 		"@overlayed/electron": "33.3.0-7",
 		"@tailwindcss/vite": "^4.2.2",
 		"@types/node": "^25.6.0",
