@@ -22,7 +22,13 @@ export default defineConfig(async () => {
 				externalizeDeps: {
 					exclude: ["@overlayed/app"],
 				},
-				rollupOptions: {
+				// Use rolldownOptions, not rollupOptions: Vite 8 translates user
+				// rollupOptions to rolldownOptions and then ignores rollupOptions,
+				// which drops electron-vite's default `external: ['electron']` and
+				// inlines the CJS electron launcher stub into the ESM bundle
+				// ("__dirname is not defined in ES module scope").
+				rolldownOptions: {
+					external: ["electron", /^electron\/.+/],
 					output: {
 						format: "es",
 						// Strangely preload needs this.
@@ -33,7 +39,8 @@ export default defineConfig(async () => {
 		},
 		preload: {
 			build: {
-				rollupOptions: {
+				rolldownOptions: {
+					external: ["electron", /^electron\/.+/],
 					output: {
 						format: "cjs",
 					},
