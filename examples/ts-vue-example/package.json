@@ -30,6 +30,7 @@
 		"@types/node": "^26.1.1",
 		"@vitejs/plugin-vue": "^6.0.7",
 		"@vueuse/core": "^14.3.0",
+		"dotenv": "^16.6.1",
 		"electron": "33.3.0",
 		"electron-builder": "^26.15.3",
 		"electron-updater": "^6.8.9",

@@ -8,8 +8,8 @@ if (!process.env.VITE_APPLICATION_ID) {
 export default defineConfig({
 	applicationId: process.env.VITE_APPLICATION_ID,
 	app: {
-		include: ["./out/main/**/*", "./out/preload/**/*", "../../node_modules/@overlayed/app"],
-		nodeModulesDir: "../../node_modules",
+		include: ["./out/main/**/*", "./out/preload/**/*", "./node_modules/@overlayed/app"],
+		nodeModulesDir: "./node_modules",
 	},
 	site: {
 		baseDir: "./out/renderer",
