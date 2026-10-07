@@ -2,4 +2,4 @@ node_modules
 .vscode
 .env
 dist
-/examples/ts-vue-example/.overlayed
+.overlayed

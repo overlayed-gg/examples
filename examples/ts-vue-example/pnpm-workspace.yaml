@@ -1,10 +1,12 @@
-packages:
-  - examples/**
+nodeLinker: hoisted
 
 onlyBuiltDependencies:
   - "@overlayed/electron"
   - electron
   - esbuild
+
+ignoredBuiltDependencies:
+  - electron-winstaller
 
 minimumReleaseAge: 4320 # 3 days
 minimumReleaseAgeExclude:
