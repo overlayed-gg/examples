@@ -14,11 +14,25 @@ An Overlayed Electron application with:
 
 ## Project Setup
 
+### Use as a template
+
+Copy this example into a new folder (no need to clone the whole repo):
+
+```bash
+npx giget@latest gh:overlayed-gg/examples/examples/ts-vue-example my-app
+cd my-app
+```
+
 ### Update Project
 
 Before use, create an `.env` file based on the `.env.example` file, and fill in the fields:
 
 - `VITE_APPLICATION_ID` - can be found [https://overlay.dev/settings](https://overlay.dev/settings)
+
+Then replace the placeholder names with your own:
+
+- `name`, `description`, `author` and `homepage` in `package.json`
+- `appId`, `productName` and `executableName` in `electron-builder.yml`
 
 ### Install the overlayed cli
 

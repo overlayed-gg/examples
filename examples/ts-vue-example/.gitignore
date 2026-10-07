@@ -1,6 +1,8 @@
 node_modules
 dist
 out
+.env
+.overlayed
 .DS_Store
 .eslintcache
 *.log*

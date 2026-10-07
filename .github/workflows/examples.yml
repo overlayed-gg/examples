@@ -1,0 +1,44 @@
+name: Examples
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  standalone-build:
+    name: ${{ matrix.example }} (standalone)
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        example:
+          - ts-vue-example
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      # Examples are used as templates by copying their folder on its own, so
+      # build from a copy outside the repo to catch anything that leans on it.
+      - name: Copy example out of the repo
+        shell: bash
+        run: |
+          cp -r "examples/${{ matrix.example }}" "$RUNNER_TEMP/example"
+          cp "$RUNNER_TEMP/example/.env.example" "$RUNNER_TEMP/example/.env"
+
+      - name: Install
+        shell: bash
+        working-directory: ${{ runner.temp }}/example
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        shell: bash
+        working-directory: ${{ runner.temp }}/example
+        run: pnpm build
