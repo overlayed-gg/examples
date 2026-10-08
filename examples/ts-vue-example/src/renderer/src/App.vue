@@ -75,7 +75,7 @@ ipc.getEvents()
 						class="group border-b border-zinc-700"
 					>
 						<td class="py-2 text-left px-3 border-b border-zinc-700">
-							{{ new Date(event.creation_time).toLocaleString().split(" ")[1] }}
+							{{ new Date(event.creationTime).toLocaleString().split(" ")[1] }}
 						</td>
 						<td class="py-2 text-left px-3 border-b border-zinc-700">
 							{{ event.type }}
