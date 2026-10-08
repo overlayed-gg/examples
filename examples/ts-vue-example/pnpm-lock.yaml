@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@overlayed/app':
-        specifier: 2.3.0
-        version: 2.3.0(electron@44.3.0)(typescript@6.0.3)
+        specifier: 2.4.0
+        version: 2.4.0(electron@44.3.0)(typescript@6.0.3)
     devDependencies:
       '@electron-toolkit/tsconfig':
         specifier: ^2.0.0
@@ -706,11 +706,11 @@ packages:
     resolution: {integrity: sha512-X5XaVWZIBCT7HHZGm5I7ZQXDwLG+bGXuSrMQAW+7Zvl87h1kmc1ZB1VSRJcpUfoUrGQp4Fkoxm5kZ+Ms+aW+eA==}
     engines: {node: '>= 20.19.0'}
 
-  '@overlayed/app@2.3.0':
-    resolution: {integrity: sha512-ofPRo5atPVRVTaK4EUtzcu9lBYiTORKhnEYmzhTxwih8vCxz2wi1s93WZMwSUmHIGo7TrM1ENl8PzThlEGplLg==}
+  '@overlayed/app@2.4.0':
+    resolution: {integrity: sha512-J8w68aUoGl4KfcUlmb83eLj1qYLyNsH67kwZNzpJHclIxzLuD11oGJd6CHuGdP6Jg68DJhA9jFnbJf1piznRIQ==}
     engines: {node: '>=24.0.0'}
     peerDependencies:
-      electron: 33.3.0
+      electron: 44.3.0
       typescript: '*'
     peerDependenciesMeta:
       typescript:
@@ -3055,7 +3055,7 @@ snapshots:
 
   '@noble/hashes@2.4.0': {}
 
-  '@overlayed/app@2.3.0(electron@44.3.0)(typescript@6.0.3)':
+  '@overlayed/app@2.4.0(electron@44.3.0)(typescript@6.0.3)':
     dependencies:
       arktype: 2.2.7
       builder-util-runtime: 9.7.0
