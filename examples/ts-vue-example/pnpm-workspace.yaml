@@ -11,3 +11,6 @@ ignoredBuiltDependencies:
 minimumReleaseAge: 4320 # 3 days
 minimumReleaseAgeExclude:
   - "@overlayed/*"
+
+overrides:
+  http-cache-semantics: ^4.3.0
